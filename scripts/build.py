@@ -26,6 +26,11 @@ def main():
     readme = sub(template)
     (ROOT / "README.md").write_text(readme, encoding="utf-8")
 
+    start_tpl = ROOT / "scripts" / "START.template.md"
+    if start_tpl.exists():
+        (ROOT / "prompts").mkdir(exist_ok=True)
+        (ROOT / "prompts" / "START.md").write_text(sub(start_tpl.read_text(encoding="utf-8")), encoding="utf-8")
+
     # FULL.md = README body without the human section + all modules
     body = readme.split("\n---\n\n## Для человека")[0]
     parts = [body.rstrip(), ""]

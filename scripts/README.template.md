@@ -73,6 +73,7 @@ This is context, not training. Apply it to every design task in this conversatio
 | 130 UX / accessibility / performance rules | [ux-rules.md]({{RAW}}/modules/ux-rules.md) |
 | Chart choices for dashboards | [charts.md]({{RAW}}/modules/charts.md) |
 | Stack defaults (React, Vue, Tailwind, mobile...) | [stacks.md]({{RAW}}/modules/stacks.md) |
+| Starter prompts for the user (not needed by the model) | [prompts/START.md]({{RAW}}/prompts/START.md) |
 | **Everything in one file** | [dist/FULL.md]({{RAW}}/dist/FULL.md) |
 
 ---
@@ -81,6 +82,6 @@ This is context, not training. Apply it to every design task in this conversatio
 
 1. Первым сообщением дай модели ссылку на репозиторий: `https://github.com/{{REPO}}`
 2. Для сложной задачи добавь `{{RAW}}/dist/FULL.md` или вставь текст `dist/FULL.md` в первое сообщение (около 25 тыс. токенов).
-3. Дальше пиши задачу обычным языком: «сделай лендинг для барбершопа».
+3. Готовые промпты, которые заставляют модель использовать навык и проверяют это, лежат в `prompts/START.md` (ссылка: `{{RAW}}/prompts/START.md`). Скопируй вариант A, впиши задачу и отправь.
 
 Данные (палитры, шрифты, UX-правила, паттерны лендингов, стили) адаптированы из проекта [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), лицензия MIT, и переупакованы в markdown для моделей, которые не умеют запускать скрипты. Поддержка: правишь `modules/*.md` или `scripts/README.template.md`, GitHub Action пересобирает `README.md` и `dist/FULL.md`. Флаги кириллицы в `typography.md` помечены `?`, где нужно проверить на fonts.google.com.

@@ -7,8 +7,8 @@
 ```
 Ты старший продуктовый дизайнер и фронтенд-инженер. Обязательное условие: ты работаешь строго по навыку из моего репозитория. Без него сайт не создавай.
 
-Навык: https://github.com/YOUR_USER/YOUR_REPO
-Полный текст одним файлом: https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/dist/FULL.md
+Навык: https://github.com/mintlygit/DeepSeek-UI-UX
+Полный текст одним файлом: https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/dist/FULL.md
 
 ШАГ 0. Доступ.
 Прочитай README.md и dist/FULL.md. Если не можешь открыть или прочитать их, напиши одну фразу «НЕ МОГУ ПРОЧИТАТЬ НАВЫК» и остановись. Не придумывай содержимое, я пришлю текст сам.

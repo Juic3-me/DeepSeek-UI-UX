@@ -7,7 +7,7 @@ This is context, not training. Apply it to every design task in this conversatio
 ## Workflow (always, in this order)
 
 1. **Understand.** Ask at most 2 questions, only if critical (product, audience). Otherwise assume and state assumptions in one line.
-2. **Classify the product** with [product-map.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/product-map.md): it gives style, landing pattern (L#), palette (P#), fonts (F#) and anti-patterns. No row fits? Use the nearest of the 192 types in [palettes.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/palettes.md).
+2. **Classify the product** with [product-map.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/product-map.md): it gives style, landing pattern (L#), palette (P#), fonts (F#) and anti-patterns. No row fits? Use the nearest of the 192 types in [palettes.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/palettes.md).
 3. **Write a Design Brief BEFORE any code**, exactly in this shape:
    - **PATTERN:** name + section order (from landing-patterns.md) + CTA placement
    - **STYLE:** one name + 3-4 keywords + performance/accessibility note
@@ -15,7 +15,7 @@ This is context, not training. Apply it to every design task in this conversatio
    - **TYPOGRAPHY:** heading / body + Google Fonts link (check the Cyrillic subset for Russian)
    - **KEY EFFECTS:** 2-3 concrete interactions
    - **AVOID:** 3 anti-patterns for this industry
-4. **Build** with CSS variables (design tokens) from the brief. Default deliverable: one self-contained `index.html` (HTML + CSS + minimal JS). Use another stack only if the user names it (see [stacks.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/stacks.md)).
+4. **Build** with CSS variables (design tokens) from the brief. Default deliverable: one self-contained `index.html` (HTML + CSS + minimal JS). Use another stack only if the user names it (see [stacks.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/stacks.md)).
 5. **Self-check** against the checklist below, fix problems silently, then deliver.
 6. **Deliver:** short brief + code + one line on how to tweak tokens. For multi-page work keep a `MASTER` brief (global tokens) and per-page overrides, and re-read it before each page.
 
@@ -65,22 +65,23 @@ This is context, not training. Apply it to every design task in this conversatio
 
 | Need | File |
 |---|---|
-| Product recipes (style, landing, palette #, font #, avoid) | [product-map.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/product-map.md) |
-| 79 visual styles and CSS recipes | [styles.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/styles.md) |
-| 34 page patterns (section order, CTA, effects) | [landing-patterns.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/landing-patterns.md) |
-| 192 product palettes + 38 industry palettes | [palettes.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/palettes.md) |
-| 74 font pairings, imports, Cyrillic flags | [typography.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/typography.md) |
-| 130 UX / accessibility / performance rules | [ux-rules.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/ux-rules.md) |
-| Chart choices for dashboards | [charts.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/charts.md) |
-| Stack defaults (React, Vue, Tailwind, mobile...) | [stacks.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/modules/stacks.md) |
-| **Everything in one file** | [dist/FULL.md](https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/dist/FULL.md) |
+| Product recipes (style, landing, palette #, font #, avoid) | [product-map.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/product-map.md) |
+| 79 visual styles and CSS recipes | [styles.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/styles.md) |
+| 34 page patterns (section order, CTA, effects) | [landing-patterns.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/landing-patterns.md) |
+| 192 product palettes + 38 industry palettes | [palettes.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/palettes.md) |
+| 74 font pairings, imports, Cyrillic flags | [typography.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/typography.md) |
+| 130 UX / accessibility / performance rules | [ux-rules.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/ux-rules.md) |
+| Chart choices for dashboards | [charts.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/charts.md) |
+| Stack defaults (React, Vue, Tailwind, mobile...) | [stacks.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/modules/stacks.md) |
+| Starter prompts for the user (not needed by the model) | [prompts/START.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/prompts/START.md) |
+| **Everything in one file** | [dist/FULL.md](https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/dist/FULL.md) |
 
 ---
 
 ## Для человека (коротко)
 
-1. Первым сообщением дай модели ссылку на репозиторий: `https://github.com/ЛОГИН/РЕПО`
-2. Для сложной задачи добавь `https://raw.githubusercontent.com/ЛОГИН/РЕПО/main/dist/FULL.md` или вставь текст `dist/FULL.md` в первое сообщение (около 25 тыс. токенов).
-3. Дальше пиши задачу обычным языком: «сделай лендинг для барбершопа».
+1. Первым сообщением дай модели ссылку на репозиторий: `https://github.com/mintlygit/DeepSeek-UI-UX`
+2. Для сложной задачи добавь `https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/dist/FULL.md` или вставь текст `dist/FULL.md` в первое сообщение (около 25 тыс. токенов).
+3. Готовые промпты, которые заставляют модель использовать навык и проверяют это, лежат в `prompts/START.md` (ссылка: `https://raw.githubusercontent.com/mintlygit/DeepSeek-UI-UX/main/prompts/START.md`). Скопируй вариант A, впиши задачу и отправь.
 
 Данные (палитры, шрифты, UX-правила, паттерны лендингов, стили) адаптированы из проекта [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), лицензия MIT, и переупакованы в markdown для моделей, которые не умеют запускать скрипты. Поддержка: правишь `modules/*.md` или `scripts/README.template.md`, GitHub Action пересобирает `README.md` и `dist/FULL.md`. Флаги кириллицы в `typography.md` помечены `?`, где нужно проверить на fonts.google.com.
