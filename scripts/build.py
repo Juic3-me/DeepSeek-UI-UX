@@ -5,12 +5,12 @@ Usage:
   python scripts/build.py --repo YOUR_USER/YOUR_REPO [--branch main]
 In GitHub Actions the repo is taken from GITHUB_REPOSITORY automatically.
 """
-import argparse, os, sys
+import argparse, os, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ORDER = ["product-map", "styles", "landing-patterns", "palettes", "typography", "ux-rules", "charts", "stacks"]
-README_LIMIT_CHARS = 16000   # ~6k tokens, README must stay small
+README_LIMIT_CHARS = 30000   # ~6k tokens, README must stay small
 
 def main():
     ap = argparse.ArgumentParser()
@@ -22,25 +22,30 @@ def main():
     def sub(text):
         return text.replace("{{RAW}}", raw).replace("{{REPO}}", a.repo)
 
+    prompt = sub((ROOT / "scripts" / "PROMPT.template.txt").read_text(encoding="utf-8").rstrip())
+
+    def render(text):
+        return sub(text.replace("{{PROMPT}}", prompt))
+
     template = (ROOT / "scripts" / "README.template.md").read_text(encoding="utf-8")
-    readme = sub(template)
+    readme = render(template)
     (ROOT / "README.md").write_text(readme, encoding="utf-8")
 
     start_tpl = ROOT / "scripts" / "START.template.md"
     if start_tpl.exists():
         (ROOT / "prompts").mkdir(exist_ok=True)
-        (ROOT / "prompts" / "START.md").write_text(sub(start_tpl.read_text(encoding="utf-8")), encoding="utf-8")
+        (ROOT / "prompts" / "START.md").write_text(render(start_tpl.read_text(encoding="utf-8")), encoding="utf-8")
 
-    # FULL.md = README body without the human section + all modules
-    body = readme.split("\n---\n\n## Для человека")[0]
-    parts = [body.rstrip(), ""]
+    # FULL.md = AI instructions section of the README + all modules
+    m = re.search(r"<!-- AI-START -->(.*?)<!-- AI-END -->", readme, re.S)
+    body = m.group(1).strip() if m else readme
+    parts = [body, ""]
     for name in ORDER:
         p = ROOT / "modules" / f"{name}.md"
         if not p.exists():
             print(f"warning: missing {p}", file=sys.stderr)
             continue
         parts += ["\n---\n", p.read_text(encoding="utf-8").strip(), ""]
-    # modules not listed in ORDER are appended too, so nothing is lost
     for p in sorted((ROOT / "modules").glob("*.md")):
         if p.stem not in ORDER:
             parts += ["\n---\n", p.read_text(encoding="utf-8").strip(), ""]
